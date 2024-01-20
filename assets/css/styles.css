@@ -1,0 +1,384 @@
+:root {
+  --primary: gold;
+  --bg: #010101;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  outline: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: beige;
+  font-family: "Libre Baskerville", serif;
+  color: white;
+  background-color: var(--bg);
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background-image: url("../img/hero-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.menu-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  opacity: 0;
+  z-index: 3;
+  cursor: pointer;
+}
+
+.hamburger {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: rgba(1, 1, 1, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.hamburger > div {
+  position: absolute;
+  width: 50%;
+  height: 3px;
+  border-radius: 1.5px;
+  background-color: var(--primary);
+  transition: 0.5s;
+}
+
+.hamburger > div:before,
+.hamburger > div:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  border-radius: 1.5px;
+  background-color: var(--primary);
+}
+
+.hamburger > div:before {
+  top: -10px;
+}
+
+.hamburger > div:after {
+  top: 10px;
+}
+
+.toggle:checked + .hamburger > div {
+  transform: rotate(135deg);
+}
+
+.toggle:checked + .hamburger > div:after,
+.toggle:checked + .hamburger > div:before {
+  transform: rotate(90deg);
+  top: 0;
+}
+
+.toggle:checked ~ .menu {
+  visibility: visible;
+}
+
+.toggle:checked ~ .menu > div {
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.toggle:checked ~ .menu > div > div {
+  opacity: 1;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  visibility: hidden;
+  transition: 0.5s;
+}
+
+.menu-container .menu > div {
+  position: absolute;
+  width: 3000px;
+  height: 3000px;
+  border-radius: 50%;
+  transform: translateX(-150%) translateY(-50%);
+  top: 50%;
+  left: 50%;
+  background-color: rgba(1, 1, 1, 0.85);
+  transition: 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu > div > div {
+  max-width: 90vw;
+  max-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+}
+
+.menu > div > div > ul > li > a {
+  margin: 0.5rem;
+  display: inline-block;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: white;
+  transition: 0.3s;
+}
+
+.menu > div > div > ul > li > a:hover {
+  color: var(--primary);
+  font-size: 1.5rem;
+}
+
+.content {
+  display: flex;
+  width: 80%;
+  margin: auto;
+}
+
+.content .profile {
+  max-width: 500px;
+  text-align: center;
+  padding: 3rem;
+  border: 5px solid rgb(201, 193, 193);
+}
+
+.content .profile img {
+  border-radius: 50%;
+  margin: 1rem 0 2rem;
+  box-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+}
+
+.content .profile h1,
+.description h1 {
+  font-size: 2rem;
+  white-space: nowrap;
+}
+
+.description h1 {
+  overflow: hidden;
+  animation: typingText 5s steps(30, end);
+}
+
+.content .profile h3 {
+  margin-top: 0.5rem;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.content .description span {
+  color: var(--primary);
+}
+
+.content .description {
+  margin: 2rem 5rem;
+  mix-blend-mode: difference;
+}
+
+.content .description p {
+  font-size: 14px;
+  margin: 1.5rem 0;
+  line-height: 1.4rem;
+}
+
+ul.contact li ul.spacing-text li:nth-child(1) {
+  width: 30%;
+  font-size: 14px;
+}
+
+ul.contact li ul.spacing-text li {
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.tentang {
+  padding: 3rem 5%;
+}
+
+.tentang h1 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.tentang .row {
+  display: flex;
+  margin-bottom: 2rem;
+  border: 2px solid var(--primary);
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.tentang .row .img-tentang {
+  flex: 1 1 20rem;
+}
+
+.tentang .row .img-tentang img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.tentang .row .tentang-1 {
+  flex: 1 1 30rem;
+  padding: 0 2rem;
+}
+
+.tentang .row .tentang-1 h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.tentang .row .tentang-1 p {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  /* margin-bottom: 1rem; */
+}
+
+/* Animation */
+@keyframes typingText {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Media Querys */
+/* Laptop */
+@media (max-width: 1366px) {
+}
+
+@media (max-width: 1152px) {
+  .content .profile {
+    padding: 1rem;
+  }
+
+  .content .profile h1 {
+    font-size: 1.5rem;
+  }
+
+  .content .description {
+    margin: auto 1rem;
+  }
+
+  .tentang .row .img-tentang {
+    flex: 1 1 30rem;
+  }
+
+  .tentang .row .tentang-1 {
+    flex: 1 1 35rem;
+    padding: 0 1rem;
+  }
+
+  .tentang .row .tentang-1 p {
+    font-size: 80%;
+    line-height: 1.2rem;
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .content {
+    flex-wrap: wrap;
+    margin: 1rem auto;
+  }
+
+  .content .profile {
+    padding: 3rem;
+    margin: auto;
+  }
+
+  .content .description {
+    margin: auto;
+    padding: 1rem;
+  }
+
+  .content .description h1 {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .tentang .row {
+    flex-wrap: wrap;
+  }
+
+  .tentang .row .img-tentang {
+    padding: 0 5rem;
+  }
+
+  .tentang .row .img-tentang img {
+    margin-bottom: 1rem;
+  }
+
+  .img-tentang {
+    order: -1; /* Menggeser img-tentang ke atas */
+  }
+}
+
+/* Handphone */
+@media (max-width: 460px) {
+  .content .profile {
+    padding: 2rem;
+    margin: auto;
+  }
+}
+
+@media (max-width: 420px) {
+  .content .profile {
+    padding: 0;
+    margin: auto;
+  }
+
+  .content .description {
+    padding: 1rem 0;
+    margin: auto;
+    mix-blend-mode: normal;
+  }
+
+  ul.contact li ul.spacing-text li:nth-child(1) {
+    width: 25%;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 360px) {
+  html {
+    font-size: 80%;
+  }
+}

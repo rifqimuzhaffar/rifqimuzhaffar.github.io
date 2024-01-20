@@ -43,7 +43,7 @@ body {
 .toggle {
   position: absolute;
   top: 1rem;
-  right: 1rem;
+  right: 1.5rem;
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -55,7 +55,7 @@ body {
 .hamburger {
   position: absolute;
   top: 1rem;
-  right: 1rem;
+  right: 1.5rem;
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -200,7 +200,7 @@ body {
   display: inline-block;
 }
 
-.content .description span {
+.content .description .my-name {
   color: var(--primary);
 }
 
@@ -361,7 +361,7 @@ ul.contact li ul.spacing-text li {
 
 @media (max-width: 420px) {
   .content .profile {
-    padding: 0;
+    padding: auto;
     margin: auto;
   }
 

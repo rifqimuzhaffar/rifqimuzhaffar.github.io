@@ -27,13 +27,30 @@ window.addEventListener("load", function () {
   const form = document.getElementById("my-form");
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-    const data = new FormData(form);
-    const action = e.target.action;
-    fetch(action, {
-      method: "POST",
-      body: data,
-    }).then(() => {
-      alert("Send Success!");
-    });
+
+    // Validasi form sebelum pengiriman
+    if (validateForm()) {
+      const data = new FormData(form);
+      const action = e.target.action;
+      fetch(action, {
+        method: "POST",
+        body: data,
+      }).then(() => {
+        alert("Send Success!");
+      });
+    } else {
+      alert("Please fill in all fields.");
+    }
   });
+
+  function validateForm() {
+    // Validasi setiap input di dalam form
+    const inputs = form.querySelectorAll("input[name]");
+    for (const input of inputs) {
+      if (!input.value.trim()) {
+        return false; // Jika ada input yang kosong, kembalikan false
+      }
+    }
+    return true; // Jika semua input terisi, kembalikan true
+  }
 });

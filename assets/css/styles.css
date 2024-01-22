@@ -441,6 +441,7 @@ body {
   border-radius: 10px;
   color: var(--bg);
   background-color: var(--primary);
+  cursor: pointer;
 }
 
 .contact .row form .btn-contact:hover {

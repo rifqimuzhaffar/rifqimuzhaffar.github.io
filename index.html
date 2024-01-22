@@ -224,22 +224,26 @@
           class="map"
         >
         </iframe>
-        <form action="">
+        <form
+          method="POST"
+          action="https://script.google.com/macros/s/AKfycbxZcHeQaSiXzV0UU3I872WOsn4mr7o1GsJII6Y4AU9XTzkXEwrQMoADGix8y8sADROyhA/exec"
+          id="my-form"
+        >
           <div class="input-group">
             <i data-feather="user"></i>
-            <input type="text" placeholder="Nama" />
+            <input type="text" placeholder="Nama" name="nama" />
           </div>
           <div class="input-group">
             <i data-feather="at-sign"></i>
-            <input type="text" placeholder="Email" />
+            <input type="text" placeholder="Email" name="email" />
           </div>
           <div class="input-group">
             <i data-feather="mail"></i>
-            <input type="text" placeholder="Pesan" />
+            <input type="text" placeholder="Pesan" name="pesan" />
           </div>
           <button type="submit" class="btn-contact">
             <i data-feather="send"></i>
-            Kirim
+            Send
           </button>
         </form>
       </div>

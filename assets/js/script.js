@@ -1,15 +1,3 @@
-// Scroll Reveal
-const scroll = ScrollReveal({
-  distance: "65px",
-  duration: 2600,
-  delay: 450,
-  reset: true,
-});
-
-scroll.reveal(".profile", { delay: 200, origin: "left" });
-scroll.reveal(".description", { delay: 400, origin: "right" });
-scroll.reveal(".menu-container", { delay: 400, origin: "top" });
-
 // hide menu using uncheckbox
 const MenuBar = document.querySelector(".menu");
 const checkbox = document.querySelector(".toggle");
@@ -32,11 +20,15 @@ window.addEventListener("load", function () {
     if (validateForm()) {
       const data = new FormData(form);
       const action = e.target.action;
+
       fetch(action, {
         method: "POST",
         body: data,
       }).then(() => {
         alert("Send Success!");
+
+        // Setel nilai input menjadi kosong setelah pengiriman berhasil
+        resetFormInputs();
       });
     } else {
       alert("Please fill in all fields.");
@@ -52,5 +44,13 @@ window.addEventListener("load", function () {
       }
     }
     return true; // Jika semua input terisi, kembalikan true
+  }
+
+  function resetFormInputs() {
+    // Setel nilai input menjadi kosong
+    const inputs = form.querySelectorAll("input[name]");
+    for (const input of inputs) {
+      input.value = "";
+    }
   }
 });

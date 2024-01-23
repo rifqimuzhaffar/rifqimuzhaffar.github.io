@@ -1,5 +1,5 @@
 :root {
-  --primary: gold;
+  --primary: #ffd700;
   --bg: #010101;
 }
 
@@ -24,27 +24,17 @@ body {
   background-color: var(--bg);
 }
 
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  background-image: url("../img/hero-bg.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
-
 .menu-container {
   position: fixed;
   top: 0;
-  right: 0;
+  left: 0;
   z-index: 2;
 }
 
 .toggle {
   position: absolute;
-  top: 1rem;
-  right: 1.5rem;
+  top: 2rem;
+  left: 0.5rem;
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -55,8 +45,8 @@ body {
 
 .hamburger {
   position: absolute;
-  top: 1rem;
-  right: 1.5rem;
+  top: 2rem;
+  left: 0.5rem;
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -166,6 +156,16 @@ body {
 }
 
 /* Home */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  background-image: url("../img/hero-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
 .content {
   display: flex;
   width: 80%;
@@ -404,12 +404,29 @@ body {
   border-radius: 10px;
 }
 
-.contact .row .map {
+.contact .row .social {
   flex: 1 1 45rem;
-  width: 100%;
-  object-fit: cover;
-  border-start-start-radius: 10px;
-  border-end-start-radius: 10px;
+  padding: 7.5rem 2rem;
+  color: var(--primary);
+}
+
+.contact .row .social li {
+  margin-bottom: 1.5rem;
+}
+
+.contact .row .social li a {
+  display: flex;
+  align-items: center;
+  column-gap: 0.8rem;
+  color: var(--primary);
+}
+
+.contact .row .social li a:hover {
+  color: white;
+}
+
+.contact .row .social p {
+  line-height: 1.5rem;
 }
 
 .contact .row form {
@@ -452,6 +469,16 @@ body {
 .contact .row form .btn-contact:hover {
   color: var(--primary);
   background-color: var(--bg);
+}
+
+.contact {
+  padding-bottom: 1rem;
+}
+
+.contact .copy-right {
+  text-align: center;
+  margin-top: 1rem;
+  word-spacing: 1.2px;
 }
 
 /* Animation */
@@ -594,12 +621,15 @@ body {
     flex-wrap: wrap;
   }
 
-  .contact .row .map {
-    height: 30rem;
+  .contact .row .social {
+    padding-top: 0;
+    padding-bottom: 2rem;
   }
 
   .contact .row form {
     padding-top: 0;
+    padding-bottom: 0;
+    order: -1;
   }
 }
 

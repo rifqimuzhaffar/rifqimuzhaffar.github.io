@@ -325,7 +325,6 @@ body {
   border-radius: 10px;
   gap: 40px;
   background-color: var(--bg);
-  box-shadow: 2px 2px 5px var(--bg);
 }
 
 .skills img {
